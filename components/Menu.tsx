@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 import DarkMode from "@/components/DarkMode";
 
 import { cn } from "@/lib/utils";
@@ -53,8 +52,8 @@ const components: { title: string; href: string; description: string }[] = [
 
 export default function NavigationMenuDemo() {
   return (
-    <>
-      <NavigationMenu className="py-4">
+    <div className="my-4">
+      <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
@@ -101,17 +100,10 @@ export default function NavigationMenuDemo() {
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href="/docs" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Documentation
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
           <DarkMode />
         </NavigationMenuList>
       </NavigationMenu>
-    </>
+    </div>
   );
 }
 

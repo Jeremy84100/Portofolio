@@ -54,18 +54,29 @@ const components: { title: string; href: string; image: any }[] = [
 export default function TooltipDemo() {
   return (
     <div>
-      <h1>Les technologies</h1>
+      <div className="relative">
+        <div className="absolute inset-0 flex items-center">
+          <span className="w-full border-t" />
+        </div>
+        <div className="relative flex justify-center md:justify-start text-lg font-medium mb-4">
+          <span className="bg-background px-2 md:pr-2 md:pl-0">Les technologies</span>
+        </div>
+      </div>
       <div>
         <TooltipProvider>
-          <div className="flex gap-2">
+          <div className="flex gap-2 justify-center md:justify-start flex-wrap">
             {components.map((component) => (
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
                     href={component.href}
                     target="_blank"
-                    className={buttonVariants({ variant: "outline" })}>
-                    <h1 className="text-2xl">{component.image}</h1>
+                    key={component.title}
+                    className={buttonVariants({
+                      variant: "outline",
+                      size: "lg",
+                    })}>
+                    <h1 className="text-3xl">{component.image}</h1>
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent>
