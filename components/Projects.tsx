@@ -11,9 +11,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import { Cloud, Github, Globe } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,6 +21,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
+import { Cloud, Github, Globe } from "lucide-react";
 
 const components: {
   title: string;
@@ -73,7 +74,7 @@ const components: {
   },
 ];
 
-export default function Projects () {
+export default function Projects() {
   const [visibleProjects, setVisibleProjects] = useState(5);
 
   const handleShowMore = () => {
@@ -86,10 +87,12 @@ export default function Projects () {
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />
         </div>
-        <div className="relative flex justify-center md:justify-start text-lg font-medium mb-4">
-          <span className="bg-background">Mes projects</span>
+        <div className="relative flex md:justify-start justify-center text-lg font-medium mb-4">
+          <span className="bg-background px-2 md:pr-2 md:pl-0">
+            Mes projets
+          </span>
         </div>
-      </div>{" "}
+      </div>
       <div className="flex flex-col gap-4">
         {components.slice(0, visibleProjects).map((component) => (
           <Card key={component.title}>
@@ -102,7 +105,7 @@ export default function Projects () {
             <CardFooter>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="outline">See more</Button>
+                  <Button variant="outline">Voir plus</Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56">
                   <DropdownMenuLabel>{component.title}</DropdownMenuLabel>
@@ -122,7 +125,7 @@ export default function Projects () {
                       target="_blank"
                       className="flex w-full">
                       <Globe className="mr-2 h-4 w-4" />
-                      <span>Website</span>
+                      <span>Site Web</span>
                     </a>
                   </DropdownMenuItem>
                   <DropdownMenuItem disabled={!component.api}>
@@ -141,10 +144,10 @@ export default function Projects () {
         ))}
         {components.length > visibleProjects && (
           <Button variant="outline" onClick={handleShowMore}>
-            Show more
+            Voir d'avantage
           </Button>
-        )}{" "}
+        )}
       </div>
     </div>
   );
-};
+}

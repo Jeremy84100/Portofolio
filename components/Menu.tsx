@@ -145,7 +145,7 @@ export default function NavigationMenuDemo() {
                     </SheetDescription>
                   </Link>
                   <Link href="/">
-                    <SheetTitle>Projects</SheetTitle>
+                    <SheetTitle>Projets</SheetTitle>
                     <SheetDescription>
                       Découvrez mes projets et réalisations.
                     </SheetDescription>
@@ -165,7 +165,7 @@ export default function NavigationMenuDemo() {
                 </div>
                 <div className="flex flex-col gap-4">
                   <SheetHeader>
-                    <SheetTitle>Mes projects</SheetTitle>
+                    <SheetTitle>Mes projets</SheetTitle>
                   </SheetHeader>
                   {components.map((component) => (
                     <Link key={component.title} href={component.href}>

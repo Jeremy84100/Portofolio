@@ -21,14 +21,13 @@ const TimeContainer = () => {
       setTimeDifference(difference);
     }, 1000);
 
-    // Clean up the interval on component unmount to prevent memory leaks
     return () => clearInterval(updateTimer);
   }, [BIRTH_DAY_DATE]);
 
   return (
-    <p className="text-muted-foreground text-sm pb-4">
-      Fun fact, I have been coding for{" "}
-      {intlNumberFormatter.format(timeDifference)} seconds
+    <p className="text-muted-foreground text-sm">
+      Fait amusant, je code depuis{" "}
+      {intlNumberFormatter.format(timeDifference)} secondes
     </p>
   );
 };
@@ -41,7 +40,7 @@ const Header = () => {
         alt="Jérémy BOURRET"
         width={100}
         height={100}
-        quality={30}
+        quality={80}
         className="rounded-full mb-4"
       />
       <div>
@@ -56,7 +55,6 @@ const Header = () => {
         </p>
         <TimeContainer />
       </div>
-      <Separator />
     </header>
   );
 };
