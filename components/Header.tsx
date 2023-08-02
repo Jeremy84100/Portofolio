@@ -1,6 +1,37 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 import { Separator } from "@/components/ui/separator";
 import { PiHandWavingLight } from "react-icons/pi";
 import Image from "next/image";
+
+const TimeContainer = () => {
+  const BIRTH_DAY = "02-05-2022";
+  const BIRTH_DAY_DATE = new Date(BIRTH_DAY);
+  const intlNumberFormatter = new Intl.NumberFormat("en-US");
+  const [timeDifference, setTimeDifference] = useState(0);
+
+  useEffect(() => {
+    const updateTimer = setInterval(() => {
+      const now = new Date();
+      const difference = Math.floor(
+        (now.getTime() - BIRTH_DAY_DATE.getTime()) / 1000
+      );
+      setTimeDifference(difference);
+    }, 1000);
+
+    // Clean up the interval on component unmount to prevent memory leaks
+    return () => clearInterval(updateTimer);
+  }, []);
+
+  return (
+    <p className="text-muted-foreground text-sm pb-4">
+      Fun fact, I have been coding for{" "}
+      {intlNumberFormatter.format(timeDifference)} seconds
+    </p>
+  );
+};
 
 const Header = () => {
   return (
@@ -11,7 +42,6 @@ const Header = () => {
         width={100}
         height={100}
         quality={30}
-        
         className="rounded-full mb-4"
       />
       <div>
@@ -21,9 +51,10 @@ const Header = () => {
             <PiHandWavingLight />
           </h1>
         </div>
-        <h4 className="text-sm text-muted-foreground mb-4">
+        <p className="text-sm text-muted-foreground mb-4">
           Un Développeur Front End
-        </h4>
+        </p>
+        <TimeContainer />
       </div>
       <Separator />
     </header>

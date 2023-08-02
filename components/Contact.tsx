@@ -73,7 +73,8 @@ export default function Contact() {
                 <Link
                   href={component.href}
                   target="_blank"
-                  className={buttonVariants({ variant: "ghost" })}>
+                  className={buttonVariants({ variant: "ghost" })}
+                >
                   {component.icon}
                 </Link>
               </HoverCardTrigger>

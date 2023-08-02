@@ -18,7 +18,7 @@ const components: { title: string; href: string; description: string }[] = [
   {
     title: "Disney+ clone",
     href: "https://disneyplus-clone-sandy.vercel.app/",
-    description: "Il s&apos;agit d'un clone réaliste du site web Disney+",
+    description: "Il s&apos;agit d&apos;un clone réaliste du site web Disney+",
   },
   {
     title: "Deridfile",
@@ -46,7 +46,7 @@ const components: { title: string; href: string; description: string }[] = [
     title: "Quizz Time",
     href: "https://quizz-time.vercel.app/",
     description:
-      "Il s&apos;agit d'un site de quiz basé sur React avec plusieurs catégories et niveaux de difficulté, idéal pour tester vos connaissances avec des questions à choix multiples amusantes.",
+      "Il s&apos;agit d&apos;un site de quiz basé sur React avec plusieurs catégories et niveaux de difficulté, idéal pour tester vos connaissances avec des questions à choix multiples amusantes.",
   },
 ];
 
