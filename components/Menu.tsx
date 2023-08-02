@@ -11,8 +11,22 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+
+import { ScrollArea } from "@/components/ui/scroll-area";
+
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+
+import { Menu } from "lucide-react";
+import Link from "next/link";
+import { Button } from "./ui/button";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -52,59 +66,124 @@ const components: { title: string; href: string; description: string }[] = [
 
 export default function NavigationMenuDemo() {
   return (
-    <div className="my-4">
-      <NavigationMenu>
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>À propos de moi</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <li className="row-span-3">
-                  <NavigationMenuLink asChild>
-                    <a
-                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                      href="/">
-                      <div className="mb-2 mt-4 text-lg font-medium">
-                        Jérémy
-                      </div>
-                      <p className="text-sm leading-tight text-muted-foreground">
-                        Bienvenue dans mon portofolio !
-                      </p>
-                    </a>
-                  </NavigationMenuLink>
-                </li>
-                <ListItem href="/docs/installation" title="Projects">
-                  Découvrez mes projets et réalisations.
-                </ListItem>
-                <ListItem
-                  href="/docs/primitives/typography"
-                  title="Technologies">
-                  Découvrez les technologies que j'utilise.
-                </ListItem>
-                <ListItem href="/docs" title="Contact">
-                  Contactez-moi si vous souhaitez collaborer.
-                </ListItem>
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Mes projects</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                {components.map((component) => (
-                  <ListItem
-                    key={component.title}
-                    title={component.title}
-                    href={component.href}>
-                    {component.description}
+    <div className="m-4">
+      <div className="ml:block hidden">
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>À propos de moi</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                  <li className="row-span-3">
+                    <NavigationMenuLink asChild>
+                      <a
+                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                        href="/">
+                        <div className="mb-2 mt-4 text-lg font-medium">
+                          Jérémy
+                        </div>
+                        <p className="text-sm leading-tight text-muted-foreground">
+                          Bienvenue dans mon portofolio !
+                        </p>
+                      </a>
+                    </NavigationMenuLink>
+                  </li>
+                  <ListItem href="/docs/installation" title="Projects">
+                    Découvrez mes projets et réalisations.
                   </ListItem>
-                ))}
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <DarkMode />
-        </NavigationMenuList>
-      </NavigationMenu>
+                  <ListItem
+                    href="/docs/primitives/typography"
+                    title="Technologies">
+                    Découvrez les technologies que j'utilise.
+                  </ListItem>
+                  <ListItem href="/docs" title="Contact">
+                    Contactez-moi si vous souhaitez collaborer.
+                  </ListItem>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Mes projects</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                  {components.map((component) => (
+                    <ListItem
+                      key={component.title}
+                      title={component.title}
+                      href={component.href}>
+                      {component.description}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <DarkMode />
+          </NavigationMenuList>
+        </NavigationMenu>
+      </div>
+      <div className="ml:hidden flex justify-between">
+        <Sheet>
+          <SheetTrigger>
+            <div className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-neutral-950 dark:focus-visible:ring-neutral-800 border border-neutral-200 bg-white hover:bg-neutral-100 hover:text-neutral-900 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-800 dark:hover:text-neutral-50 h-10 w-10">
+              <Menu />
+            </div>
+          </SheetTrigger>
+          <SheetContent>
+            <SheetHeader>
+              <SheetTitle>BOURRET Jérémy</SheetTitle>
+            </SheetHeader>
+            <ScrollArea className="h-full w-full pr-4 pt-4 pb-20">
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4">
+                  <SheetHeader>
+                    <SheetTitle>À propos de moi</SheetTitle>
+                  </SheetHeader>
+                  <Link href="/">
+                    <SheetTitle>Jérémy</SheetTitle>
+                    <SheetDescription>
+                      Bienvenue dans mon portofolio!
+                    </SheetDescription>
+                  </Link>
+                  <Link href="/">
+                    <SheetTitle>Projects</SheetTitle>
+                    <SheetDescription>
+                      Découvrez mes projets et réalisations.
+                    </SheetDescription>
+                  </Link>
+                  <Link href="/">
+                    <SheetTitle>Technologies</SheetTitle>
+                    <SheetDescription>
+                      Découvrez les technologies que j'utilise.
+                    </SheetDescription>
+                  </Link>
+                  <Link href="/">
+                    <SheetTitle>Contact</SheetTitle>
+                    <SheetDescription>
+                      Contactez-moi si vous souhaitez collaborer.
+                    </SheetDescription>
+                  </Link>
+                </div>
+                <div className="flex flex-col gap-4">
+                  <SheetHeader>
+                    <SheetTitle>Mes projects</SheetTitle>
+                  </SheetHeader>
+                  {components.map((component) => (
+                    <Link key={component.title} href={component.href}>
+                      <SheetTitle>{component.title}</SheetTitle>
+                      <SheetDescription>
+                        {component.description.length > 100
+                          ? component.description.slice(0, 100) + "..."
+                          : component.description}
+                      </SheetDescription>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </ScrollArea>
+          </SheetContent>
+        </Sheet>
+        <DarkMode />
+      </div>
     </div>
   );
 }
