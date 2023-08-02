@@ -67,8 +67,8 @@ export default function Contact() {
           </a>
         </div>
         <div className="flex flex-wrap gap-2 pt-2">
-          {components.map((component) => (
-            <HoverCard>
+          {components.map((component, index) => (
+            <HoverCard key={index}>
               <HoverCardTrigger asChild>
                 <Link
                   href={component.href}

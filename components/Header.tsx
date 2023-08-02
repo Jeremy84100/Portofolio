@@ -10,6 +10,7 @@ const Header = () => {
         alt="Jérémy BOURRET"
         width={100}
         height={100}
+        quality={30}
         
         className="rounded-full mb-4"
       />

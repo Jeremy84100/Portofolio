@@ -18,7 +18,7 @@ const components: { title: string; href: string; description: string }[] = [
   {
     title: "Disney+ clone",
     href: "https://disneyplus-clone-sandy.vercel.app/",
-    description: "Il s'agit d'un clone réaliste du site web Disney+",
+    description: "Il s&apos;agit d'un clone réaliste du site web Disney+",
   },
   {
     title: "Deridfile",
@@ -29,7 +29,7 @@ const components: { title: string; href: string; description: string }[] = [
   {
     title: "Iname",
     href: "https://iname.fr/",
-    description: "Un site d'actualités et de tutoriels sur le web tech",
+    description: "Un site d&apos;actualités et de tutoriels sur le web tech",
   },
   {
     title: "Game Zone",
@@ -46,7 +46,7 @@ const components: { title: string; href: string; description: string }[] = [
     title: "Quizz Time",
     href: "https://quizz-time.vercel.app/",
     description:
-      "Il s'agit d'un site de quiz basé sur React avec plusieurs catégories et niveaux de difficulté, idéal pour tester vos connaissances avec des questions à choix multiples amusantes.",
+      "Il s&apos;agit d'un site de quiz basé sur React avec plusieurs catégories et niveaux de difficulté, idéal pour tester vos connaissances avec des questions à choix multiples amusantes.",
   },
 ];
 
@@ -56,7 +56,7 @@ export default function NavigationMenuDemo() {
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+            <NavigationMenuTrigger>À propos de moi</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                 <li className="row-span-3">
@@ -74,13 +74,15 @@ export default function NavigationMenuDemo() {
                   </NavigationMenuLink>
                 </li>
                 <ListItem href="/docs/installation" title="Projects">
-                  Mes projects et mes réalisations.
+                  Découvrez mes projets et réalisations.
                 </ListItem>
-                <ListItem href="/docs/primitives/typography" title="Typography">
-                  Les technologies que j'utilise.
+                <ListItem
+                  href="/docs/primitives/typography"
+                  title="Technologies">
+                  Découvrez les technologies que j'utilise.
                 </ListItem>
                 <ListItem href="/docs" title="Contact">
-                  Contactez moi si vous voulez travailler avec moi.
+                  Contactez-moi si vous souhaitez collaborer.
                 </ListItem>
               </ul>
             </NavigationMenuContent>
@@ -94,7 +96,10 @@ export default function NavigationMenuDemo() {
                     key={component.title}
                     title={component.title}
                     href={component.href}>
-                    {component.description}
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: component.description,
+                      }}></p>
                   </ListItem>
                 ))}
               </ul>

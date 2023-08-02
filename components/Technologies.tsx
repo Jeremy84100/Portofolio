@@ -66,7 +66,7 @@ export default function TooltipDemo() {
         <TooltipProvider>
           <div className="flex gap-2 justify-center md:justify-start flex-wrap">
             {components.map((component) => (
-              <Tooltip>
+              <Tooltip key={component.title}>
                 <TooltipTrigger asChild>
                   <Link
                     href={component.href}
