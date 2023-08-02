@@ -18,7 +18,7 @@ const components: { title: string; href: string; description: string }[] = [
   {
     title: "Disney+ clone",
     href: "https://disneyplus-clone-sandy.vercel.app/",
-    description: "Il s&apos;agit d&apos;un clone réaliste du site web Disney+",
+    description: "Il s'agit d'un clone réaliste du site web Disney+",
   },
   {
     title: "Deridfile",
@@ -29,7 +29,7 @@ const components: { title: string; href: string; description: string }[] = [
   {
     title: "Iname",
     href: "https://iname.fr/",
-    description: "Un site d&apos;actualités et de tutoriels sur le web tech",
+    description: "Un site d'actualités et de tutoriels sur le web tech",
   },
   {
     title: "Game Zone",
@@ -46,7 +46,7 @@ const components: { title: string; href: string; description: string }[] = [
     title: "Quizz Time",
     href: "https://quizz-time.vercel.app/",
     description:
-      "Il s&apos;agit d&apos;un site de quiz basé sur React avec plusieurs catégories et niveaux de difficulté, idéal pour tester vos connaissances avec des questions à choix multiples amusantes.",
+      "Il s'agit d'un site de quiz basé sur React avec plusieurs catégories et niveaux de difficulté, idéal pour tester vos connaissances avec des questions à choix multiples amusantes.",
   },
 ];
 
@@ -96,10 +96,7 @@ export default function NavigationMenuDemo() {
                     key={component.title}
                     title={component.title}
                     href={component.href}>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: component.description,
-                      }}></p>
+                    {component.description}
                   </ListItem>
                 ))}
               </ul>
@@ -116,6 +113,9 @@ const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a">
 >(({ className, title, children, ...props }, ref) => {
+  const description =
+    typeof children === "string" ? children : String(children);
+
   return (
     <li>
       <NavigationMenuLink asChild>
@@ -128,7 +128,7 @@ const ListItem = React.forwardRef<
           {...props}>
           <div className="text-sm font-medium leading-none">{title}</div>
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
+            {description.replace(/'/g, "&apos;")}
           </p>
         </a>
       </NavigationMenuLink>

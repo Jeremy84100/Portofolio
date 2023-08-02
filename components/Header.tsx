@@ -23,7 +23,7 @@ const TimeContainer = () => {
 
     // Clean up the interval on component unmount to prevent memory leaks
     return () => clearInterval(updateTimer);
-  }, []);
+  }, [BIRTH_DAY_DATE]);
 
   return (
     <p className="text-muted-foreground text-sm pb-4">
