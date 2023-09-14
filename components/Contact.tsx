@@ -50,7 +50,7 @@ const components: {
 
 export default function Contact() {
   return (
-    <div>
+    <div id="contact">
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />

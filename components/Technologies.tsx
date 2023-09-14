@@ -53,7 +53,7 @@ const components: { title: string; href: string; image: any }[] = [
 
 export default function TooltipDemo() {
   return (
-    <div>
+    <div id="technologies">
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />

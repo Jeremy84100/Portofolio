@@ -88,15 +88,13 @@ export default function NavigationMenuDemo() {
                       </a>
                     </NavigationMenuLink>
                   </li>
-                  <ListItem href="/docs/installation" title="Projects">
+                  <ListItem href="#projects" title="Projects">
                     Découvrez mes projets et réalisations.
                   </ListItem>
-                  <ListItem
-                    href="/docs/primitives/typography"
-                    title="Technologies">
+                  <ListItem href="#technologies" title="Technologies">
                     Découvrez les technologies que j'utilise.
                   </ListItem>
-                  <ListItem href="/docs" title="Contact">
+                  <ListItem href="#contact" title="Contact">
                     Contactez-moi si vous souhaitez collaborer.
                   </ListItem>
                 </ul>
@@ -144,19 +142,19 @@ export default function NavigationMenuDemo() {
                       Bienvenue dans mon portofolio!
                     </SheetDescription>
                   </Link>
-                  <Link href="/">
+                  <Link href="#projects">
                     <SheetTitle>Projets</SheetTitle>
                     <SheetDescription>
                       Découvrez mes projets et réalisations.
                     </SheetDescription>
                   </Link>
-                  <Link href="/">
+                  <Link href="#technologies">
                     <SheetTitle>Technologies</SheetTitle>
                     <SheetDescription>
                       Découvrez les technologies que j'utilise.
                     </SheetDescription>
                   </Link>
-                  <Link href="/">
+                  <Link href="#contact">
                     <SheetTitle>Contact</SheetTitle>
                     <SheetDescription>
                       Contactez-moi si vous souhaitez collaborer.
