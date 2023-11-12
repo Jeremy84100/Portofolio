@@ -75,10 +75,10 @@ const components: {
 ];
 
 export default function Projects() {
-  const [visibleProjects, setVisibleProjects] = useState(5);
+  const [visibleProjects, setVisibleProjects] = useState(4);
 
   const handleShowMore = () => {
-    setVisibleProjects((prevVisibleProjects) => prevVisibleProjects + 5);
+    setVisibleProjects((prevVisibleProjects) => prevVisibleProjects + 4);
   };
 
   return (
